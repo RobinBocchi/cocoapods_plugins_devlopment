@@ -5,12 +5,12 @@ DEPENDENCIES:
   - YYCache
 
 SPEC REPOS:
-  trunk:
+  https://gitee.com/mirrors/CocoaPods-Specs.git:
     - YYCache
 
 SPEC CHECKSUMS:
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 496057791aea94f06d2b29ffb5ab4b20ef9ba422
+PODFILE CHECKSUM: a637af4e04a77c56650aea5c53adfcfe532234c9
 
 COCOAPODS: 1.8.3

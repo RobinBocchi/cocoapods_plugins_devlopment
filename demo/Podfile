@@ -1,11 +1,46 @@
+source 'https://gitee.com/mirrors/CocoaPods-Specs.git'
+source 'https://github.com/beedroid/koomee_RK_specs.git'
+
 platform :ios, '9.0'
 
-plugin 'cocoapods-sayhi'
+plugin 'cocoapods-binary'
+# plugin 'cocoapods-sayhi'
 use_frameworks!
+# sayhi_active!
+all_binary!
 
 
 target 'demo' do
 
-  pod 'YYCache'
+  pod 'YYCache', :binary => true
 
+end
+
+# pre_install Hooks允许你在Pods被下载后但是还未安装前对Pods做一些改变
+pre_install do |installer|
+    puts "##### pre_install start #####"
+    # 获取属性名称列表，并遍历打印
+     puts "╟ installer"
+    installer.instance_variables.each do |variableName|
+        # 打印属性名称
+        puts "  ╟ #{variableName}"
+    end
+    puts "  ╟ installer.public_methods"
+    # 获取方法名称列表，并遍历
+    installer.public_methods.each do |method|
+        # 打印方法名称
+        puts "    ┣ #{method}"
+    end
+end
+
+# post_install Hooks允许你在生成的Xcode project写入硬盘或者其他你想执行的操作前做最后的改动。
+post_install do |installer|
+    # 1. 遍历项目中所有target
+    installer.pods_project.targets.each do |target|
+        # 2. 遍历build_configurations
+        target.build_configurations.each do |config|
+            # 3. 修改build_settings中的ENABLE_BITCODE
+            puts config.build_settings['ENABLE_BITCODE']
+    end
+  end
 end

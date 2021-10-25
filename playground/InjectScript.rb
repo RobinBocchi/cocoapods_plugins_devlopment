@@ -1,4 +1,4 @@
-puts "InjectScript file loading"
+puts "InjectScript file 加载" + self.to_s
 
 module BoomModule
 	class InjectScript

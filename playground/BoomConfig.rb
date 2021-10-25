@@ -1,3 +1,5 @@
+puts "BoomConfig file 加载" + self.to_s
+
 module BoomModule
   class BoomConfig
     def version
